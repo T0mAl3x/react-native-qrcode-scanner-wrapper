@@ -1,6 +1,6 @@
 {
   "name": "react-native-qrcode-scanner-wrapper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "homepage": "https://github.com/T0mAl3x/react-native-qrcode-scanner-wrapper",
   "main": "lib/index.js",
