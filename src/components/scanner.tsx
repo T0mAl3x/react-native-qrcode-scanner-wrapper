@@ -9,12 +9,13 @@ import {
 } from 'react-native'
 import { RNCamera } from 'react-native-camera'
 import { FAB } from 'react-native-paper'
-import QRCodeScanner from 'react-native-qrcode-scanner'
+import QRCodeScanner, {
+  RNQRCodeScannerProps,
+} from 'react-native-qrcode-scanner'
 
-type ScannerProps = {
+interface ScannerProps extends RNQRCodeScannerProps {
   headerTitle?: string
   reactivateTitle?: string
-  onRead: (data: string) => void
 }
 
 const defaultProps = {
@@ -66,9 +67,7 @@ const Scanner: FC<ScannerProps> = (props: ScannerProps) => {
     <View style={styles.rootContainer}>
       <QRCodeScanner
         ref={scannerRef}
-        onRead={(e) => {
-          onRead(e.data)
-        }}
+        onRead={onRead}
         cameraStyle={styles.cameraContainer}
         cameraProps={{
           barCodeTypes: [RNCamera.Constants.BarCodeType.qr],
